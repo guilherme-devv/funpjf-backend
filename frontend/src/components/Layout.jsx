@@ -69,6 +69,14 @@ export default function Layout({ children }) {
               <Settings className="h-5 w-5 mr-3" />
               Administração
             </Link>
+            <a
+              href="/admin/login"
+              className="sidebar-link"
+              onClick={() => setSidebarOpen(false)}
+            >
+              <Settings className="h-5 w-5 mr-3" />
+              Login Admin
+            </a>
           </nav>
         </div>
       </div>
@@ -103,6 +111,13 @@ export default function Layout({ children }) {
               <Settings className="h-5 w-5 mr-3" />
               Administração
             </Link>
+            <a
+              href="/admin/login"
+              className="sidebar-link"
+            >
+              <Settings className="h-5 w-5 mr-3" />
+              Login Admin
+            </a>
           </nav>
         </div>
       </div>

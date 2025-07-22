@@ -97,4 +97,11 @@ export const configuracoesService = {
   atualizar: (data) => api.post('/configuracoes/atualizar/', data),
 }
 
+export const authService = {
+  login: (credentials) => api.post('/auth/login/', credentials),
+  logout: (data) => api.post('/auth/logout/', data),
+  getProfile: () => api.get('/auth/profile/'),
+  refreshToken: (data) => api.post('/auth/refresh/', data),
+}
+
 export default api

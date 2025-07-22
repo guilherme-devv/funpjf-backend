@@ -40,6 +40,7 @@ LOCAL_APPS = [
     'apps.investimentos',
     'apps.certificacoes',
     'apps.configuracoes',
+    'apps.authentication',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -119,6 +120,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Custom User Model
+AUTH_USER_MODEL = 'authentication.CustomUser'
 
 # REST Framework
 REST_FRAMEWORK = {

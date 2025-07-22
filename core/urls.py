@@ -32,6 +32,7 @@ urlpatterns = [
     path('api/v1/', include('apps.configuracoes.urls')),
     
     # Authentication
+    path('api/auth/', include('apps.authentication.urls')),
     path('api/auth/', include('rest_framework_simplejwt.urls')),
     
     # Swagger
