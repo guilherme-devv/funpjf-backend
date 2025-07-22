@@ -1,5 +1,6 @@
 import { useAuth } from '../contexts/AuthContext'
 import { useQuery } from 'react-query'
+import { Link } from 'react-router-dom'
 import { 
   Users, 
   FileText, 
@@ -61,6 +62,13 @@ export default function AdminDashboard() {
       url: '/admin/',
       icon: Settings,
       color: 'bg-gray-600 hover:bg-gray-700'
+    },
+    {
+      title: 'Gerenciar Transparência',
+      description: 'Criar e gerenciar documentos',
+      url: '/admin/transparencia',
+      icon: Database,
+      color: 'bg-green-600 hover:bg-green-700'
     },
     {
       title: 'API Documentation',
@@ -154,13 +162,32 @@ export default function AdminDashboard() {
           {adminLinks.map((link) => {
             const Icon = link.icon
             return (
-              <a
+             {link.url.startsWith('/admin/transparencia') ? (
+               <Link
+                 key={link.title}
+                 to={link.url}
+                 className="card hover:shadow-lg transition-all duration-200 group"
+               >
+                 <div className="flex items-center mb-4">
+                   <div className={`p-3 rounded-lg ${link.color} text-white group-hover:scale-110 transition-transform duration-200`}>
+                     <Icon className="h-6 w-6" />
+                   </div>
+                 </div>
+                 <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary-600">
+                   {link.title}
+                 </h3>
+                 <p className="text-gray-600 text-sm">
+                   {link.description}
+                 </p>
+               </Link>
+             ) : (
+               <a
                 key={link.title}
                 href={link.url}
-                target={link.url.startsWith('/') && link.url !== '/' ? '_blank' : '_self'}
-                rel="noopener noreferrer"
+                 target={link.url.startsWith('/') && link.url !== '/' ? '_blank' : '_self'}
+                 rel="noopener noreferrer"
                 className="card hover:shadow-lg transition-all duration-200 group"
-              >
+               >
                 <div className="flex items-center mb-4">
                   <div className={`p-3 rounded-lg ${link.color} text-white group-hover:scale-110 transition-transform duration-200`}>
                     <Icon className="h-6 w-6" />
@@ -175,7 +202,8 @@ export default function AdminDashboard() {
                 <p className="text-gray-600 text-sm">
                   {link.description}
                 </p>
-              </a>
+               </a>
+             )}
             )
           })}
         </div>

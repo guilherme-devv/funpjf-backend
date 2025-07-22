@@ -14,6 +14,8 @@ import Contato from './pages/Contato'
 import Admin from './pages/Admin'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
+import AdminTransparenciaCreate from './pages/AdminTransparenciaCreate'
+import AdminTransparenciaList from './pages/AdminTransparenciaList'
 
 function App() {
   return (
@@ -25,6 +27,18 @@ function App() {
       <Route path="/admin/dashboard" element={
         <ProtectedRoute>
           <AdminDashboard />
+        </ProtectedRoute>
+      } />
+      
+      <Route path="/admin/transparencia" element={
+        <ProtectedRoute>
+          <AdminTransparenciaList />
+        </ProtectedRoute>
+      } />
+      
+      <Route path="/admin/transparencia/create" element={
+        <ProtectedRoute>
+          <AdminTransparenciaCreate />
         </ProtectedRoute>
       } />
       
